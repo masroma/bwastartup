@@ -17,18 +17,15 @@ func main() {
 	}
 
 	userRepocitory := user.NewRepocitory(db)
+	userService := user.NewService(userRepocitory)
 
-	// tes
-	user := user.User{
-		Name:       "Test Simpan aja",
-		Occupation: "IT Analyst",
-		Email:      "roma@gmail.com",
-		Password:   "password",
-		Avatar:     "usera.jpg",
-		Role:       "user",
-	}
+	userInput := user.RegisterUserInput{}
+	userInput.Name = "Aida tester"
+	userInput.Email = "aida@gmail.com"
+	userInput.Occupation = "Penulis"
+	userInput.Password = "password"
 
-	userRepocitory.Save(user)
+	userService.RegisterUser(userInput)
 
 }
 
